@@ -2,10 +2,6 @@
 
 This paper has been submitted to iScience
 
-===================================
+*Before running this code, please make sure you have installed the appropriate versions of the packages using requirements.txt.
 
-*Before runnung these code, please make sure that you have install the packages with corresponding versions using requirements.txt.
-
-===================================
-
-Run "main.py" file, then the corresponding results would obtain.
+Run the "main.py" file. You will get the corresponding results.
