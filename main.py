@@ -108,8 +108,6 @@ for index, label in enumerate(target_labels):
     with open(f'models/rf_single_{label}_model.pickle', 'rb') as f:
         rf_single_models.append(pickle.load(f))
 
-
-
 rf_single_importances_df = pd.DataFrame()
 
 for index, label in enumerate(target_labels):
@@ -131,7 +129,6 @@ for index, label in enumerate(target_labels):
     rf_single_topN_10fold.append(_df)
 
 rf_single_10fold.groupby('label').mean().round(4).reset_index().iloc[[0,4,2,3,1]]
-
 
 rf_single_best_topN_10fold_metrics = pd.DataFrame()
 for index, label in enumerate(target_labels):
@@ -232,15 +229,7 @@ scoreY = cnn_multi_model.predict(testX.reshape((testX.shape[0], testX.shape[1], 
 cnn_multi_metrics_df = get_multi_label_metrics(testY, scoreY, target_labels)
 cnn_multi_metrics_df
 
-with open('cnn_multi_heatmaps.pickle', 'rb') as f:
-    cnn_multi_heatmaps = pickle.load(f)
-
 cnn_multi_topN_10fold = pd.read_csv(f'performances/cnn_multi_topN_10fold.csv')
-
-with open('cnn_multi_10fold.pickle', 'rb') as f:
-    cnn_multi_10fold = pickle.load(f)
-
-cnn_multi_10fold.groupby('label').mean().round(4).reset_index().iloc[[0,4,2,3,1,5]]
 
 _df = cnn_multi_10fold.groupby('label').mean().reset_index() 
 _auc = _df[_df['label']=='macro']['auc'].values.reshape(-1)[0]
