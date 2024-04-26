@@ -4,6 +4,7 @@ from sklearn.model_selection import KFold, StratifiedKFold
 from sklearn.metrics import accuracy_score, hamming_loss, confusion_matrix, multilabel_confusion_matrix, roc_auc_score, roc_curve, auc
 import numpy as np
 import pickle
+from tensorflow.keras.models import load_model
 
 def PAAC_CTDD_rename(s):
     s = s.replace('Xc1', 'PAAC')
